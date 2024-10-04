@@ -7,7 +7,8 @@ sudo pacman -S vim emacs nano strace openssh curl htop tree wget terminator xcli
 
 # Lenguajes de Programacion
 echo "Installando Lenguajes y Herramientas de Programacion"
-sudo pacman -S base-devel gcc gdb python python-pip jdk11-openjdk cunit make cmake bless
+sudo pacman -S base-devel gcc gdb python python-pip jdk21-openjdk cunit make cmake bless
+
 
 # DEV Utils
 echo "Installando Utilidades de Programacion"
