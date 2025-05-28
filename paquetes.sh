@@ -1,14 +1,45 @@
-# Update
-sudo pacman -Syu
+#!/bin/bash -x
 
-# Paquetes Herramientas
-echo "Instalando Herramientas Generales"
-sudo pacman -S vim emacs nano strace openssh curl htop tree wget terminator xclip bless neofetch net-tools
+set -e
+
+# Update
+sudo pacman -Syu --noconfirm
+
+# Paquetes Generales y Herramientas
+sudo pacman -S vim emacs nano strace openssh curl htop tree wget terminator xclip bless fastfetch net-tools valgrind meld bluez bluez-utils --noconfirm
 
 # Lenguajes de Programacion
-echo "Instalando Lenguajes y Herramientas de Programacion"
-sudo pacman -S base-devel gcc gdb python python-pip jdk21-openjdk cunit make cmake bless
+sudo pacman -S base-devel gcc gdb python python-pip jdk21-openjdk cunit make cmake bless --noconfirm
 
-# DEV Utils
-echo "Instalando Utilidades de Programacion"
-sudo pacman -S valgrind meld
+# installs nvm (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
+# Avoid restart shell
+\. "$HOME/.nvm/nvm.sh"
+
+# download and install Node.js (you may need to restart the terminal)
+nvm install 22
+
+# verifies the right Node.js version is in the environment
+node -v
+nvm current
+
+# Download and install pnpm
+corepack enable pnpm
+
+# Verify pnpm version
+pnpm -v
+
+
+
+
+## Esto queda para el final para no cambiar la shell en medio
+# ZSH
+echo "Installando ZSH"
+sudo pacman -S zsh --noconfirm
+
+# Oh My ZSH
+echo "Installando Oh My ZSH --> ZSH Cheto"
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+
