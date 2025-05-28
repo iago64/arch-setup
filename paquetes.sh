@@ -20,16 +20,20 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 # download and install Node.js (you may need to restart the terminal)
 nvm install 22
-
-# verifies the right Node.js version is in the environment
 node -v
 nvm current
-
-# Download and install pnpm
 corepack enable pnpm
-
-# Verify pnpm version
 pnpm -v
+
+# Add Docker
+sudo pacman -S docker --noconfirm
+sudo systemctl start docker
+sudo systemctl enable docker 
+sudo usermod -aG docker $USER
+
+# Add YaY
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+cd .. && rm -rf ./yay
 
 ## Esto queda para el final para no cambiar la shell en medio
 # ZSH
