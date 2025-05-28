@@ -2,6 +2,7 @@
 
 set -e
 
+
 # Update
 sudo pacman -Syu --noconfirm
 
@@ -29,9 +30,6 @@ corepack enable pnpm
 
 # Verify pnpm version
 pnpm -v
-
-
-
 
 ## Esto queda para el final para no cambiar la shell en medio
 # ZSH
